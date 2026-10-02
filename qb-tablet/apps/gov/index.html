@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>GOV</title>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand"><div class="seal">G</div><div><div class="eyebrow">SERVIÇOS AO CIDADÃO</div><h1>GOV</h1></div></div>
+      <button id="refresh" class="refresh" type="button" aria-label="Atualizar dados">↻</button>
+    </header>
+
+    <div id="notice" class="notice hidden" role="status"></div>
+
+    <section class="welcome">
+      <div><div class="welcome-label">CARTEIRA DIGITAL</div><h2 id="welcome-name">Olá, cidadão</h2><p>Consulte seus dados e veículos registrados.</p></div>
+      <div class="profile-icon">♙</div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><div><span class="step">01</span><h2>Meus dados</h2></div><span class="verified">● Cadastro oficial</span></div>
+      <div class="profile-card">
+        <div class="profile-head"><div class="avatar">♙</div><div><small>NOME COMPLETO</small><strong id="full-name">Carregando…</strong></div></div>
+        <div class="details-grid">
+          <div class="detail"><small>PASSAPORTE</small><b id="passport">—</b></div>
+          <div class="detail"><small>IDADE</small><b id="age">—</b></div>
+          <div class="detail"><small>TELEFONE</small><b id="phone">—</b></div>
+          <div class="detail"><small>REGISTRO</small><b id="registration">—</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section vehicles-section">
+      <div class="section-title"><div><span class="step">02</span><h2>Meus veículos</h2></div><span id="vehicle-count" class="count">—</span></div>
+      <div id="vehicles" class="vehicles-list"><div class="empty">Carregando veículos…</div></div>
+    </section>
+
+    <footer>Os dados exibidos são consultados nos registros da cidade.</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

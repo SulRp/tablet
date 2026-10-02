@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>Sistema judicial</title>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <div class="eyebrow">PODER JUDICIÁRIO</div>
+        <h1>Processos</h1>
+        <p class="subtitle">Registro profissional e acompanhamento de casos.</p>
+      </div>
+      <button class="refresh" id="refresh" type="button" aria-label="Atualizar processos">↻</button>
+    </header>
+
+    <div id="notice" class="notice hidden" role="status"></div>
+
+    <section class="panel">
+      <h2>Abrir processo</h2>
+      <form id="case-form">
+        <label>Parte envolvida<input id="party" name="party" maxlength="80" required placeholder="Nome do cidadão ou empresa"></label>
+        <label>Tipo de processo
+          <select id="case-type" name="caseType" required>
+            <option value="">Selecione uma categoria</option>
+            <option>Criminal</option><option>Cível</option><option>Trabalhista</option>
+            <option>Trânsito</option><option>Família</option><option>Outro</option>
+          </select>
+        </label>
+        <label>Resumo dos fatos<textarea id="summary" name="summary" maxlength="700" required rows="4" placeholder="Descreva os fatos e o pedido inicial"></textarea></label>
+        <div class="form-footer"><small id="counter">0/700</small><button id="submit" type="submit">Registrar processo</button></div>
+      </form>
+    </section>
+
+    <section class="cases-section">
+      <div class="section-heading"><h2>Processos recentes</h2><span>até 50 registros</span></div>
+      <div id="cases" class="cases-list"><div class="empty">Carregando processos…</div></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

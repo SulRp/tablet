@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tablet</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="icon.css">
+</head>
+<body>
+  <main id="tablet" class="tablet hidden">
+    <div class="frame">
+      <header class="topbar"><div class="brand"><span class="brand-mark">◈</span><span>TABLET</span></div><div class="status"><span id="clock">09:41</span><span>●</span><span>▰</span></div></header>
+      <section id="home" class="screen">
+        <div class="welcome"><div class="eyebrow">SEU ESPAÇO DIGITAL</div><h1>Olá, como vai?</h1><p>Seus aplicativos, do seu jeito.</p></div>
+        <div id="home-grid" class="app-grid"></div>
+        <button id="home-store" class="store-card"><span class="store-icon">＋</span><span><b>Explorar aplicativos</b><small>Encontre novas ferramentas</small></span><span class="arrow">›</span></button>
+        <div class="dock" id="dock"></div>
+      </section>
+      <section id="store" class="screen hidden"><div class="subhead"><button class="back" data-home>‹</button><div><div class="eyebrow">PERSONALIZE</div><h2>Loja de apps</h2></div></div><p class="subtext">Escolha o que quer ter no seu tablet.</p><div id="store-list" class="store-list"></div></section>
+      <section id="settings" class="screen hidden"><div class="subhead"><button class="back" data-home>‹</button><div><div class="eyebrow">PREFERÊNCIAS</div><h2>Ajustes</h2></div></div><div class="settings-card"><div class="settings-logo">◈</div><b>Tablet QBCore</b><small>Seus apps ficam salvos no seu personagem.</small></div><div class="settings-row"><span>Aplicativos instalados</span><b id="app-count">0</b></div><div class="settings-row"><span>Versão</span><b>1.0.0</b></div></section>
+      <section id="app-view" class="screen app-screen hidden"><div class="appbar"><button id="app-back" class="back">‹</button><span id="app-title"></span></div><iframe id="app-frame" title="Aplicativo" sandbox="allow-scripts allow-forms allow-same-origin"></iframe></section>
+      <button id="close" class="close-button" aria-label="Fechar">×</button>
+    </div>
+  </main>
+  <script src="app.js"></script>
+  <script src="judicial-bridge.js"></script>
+</body></html>

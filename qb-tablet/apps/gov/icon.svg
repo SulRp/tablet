@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="GOV">
+  <rect width="96" height="96" rx="24" fill="#173e69"/>
+  <path d="M48 16 22 28v5h52v-5L48 16Zm-19 21v29h8V37h-8Zm15 0v29h8V37h-8Zm15 0v29h8V37h-8ZM20 71v7h56v-7H20Z" fill="#f1cc71"/>
+  <path d="M48 11 17 25v11h62V25L48 11Zm0 6 23 10v3H25v-3l23-10Z" fill="#fff" opacity=".9"/>
+</svg>
