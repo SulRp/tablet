@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 lua54 'yes'
 
-name 'qb-tablet'
+name 'leonne_tablet'
 author 'Leonne'
 description 'QBCore tablet with ox_inventory and folder-based apps.'
 version '1.3.0'

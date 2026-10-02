@@ -9,17 +9,18 @@ local function getRebornUserId(source)
     return nil
 end
 
-QBCore.Functions.CreateCallback('qb-tablet:server:getIntegrationData', function(source, cb, appId)
+QBCore.Functions.CreateCallback('leonne_tablet:server:getIntegrationData', function(source, cb, appId)
     local userId = getRebornUserId(source)
     if not userId then cb({ ok=false, error='vrp_unavailable' }); return end
 
     if appId == 'homes' then
         if GetResourceState('will_homes') ~= 'started' then cb({ok=false,error='homes_unavailable'}); return end
-        local ok, houses = pcall(function() return exports['will_homes']:Homes() end)
+        local ok, houses = pcall(function() return exports['will_homes']:getOwnedHomes(userId) end)
         if not ok or type(houses) ~= 'table' then cb({ok=false,error='homes_unavailable'}); return end
         local result = {}
-        for id, home in pairs(houses) do
-            if type(home) == 'table' and tostring(home.owner) == tostring(userId) then
+        for _, entry in pairs(houses) do
+            local id, home = entry.id, entry.home
+            if type(home) == 'table' then
                 local coords = home.coords and (home.coords.house_out or home.coords.house_in)
                 result[#result + 1] = {
                     id=tostring(id), name=tostring(home.name or ('Imóvel '..id)),
@@ -34,7 +35,7 @@ QBCore.Functions.CreateCallback('qb-tablet:server:getIntegrationData', function(
 
     if appId == 'garage' then
         if GetResourceState('will_garages_v2') ~= 'started' then cb({ok=false,error='garage_unavailable'}); return end
-        local ok, vehicles = pcall(function() return vRP.query('will/get_owned_vehicles', { user_id=userId }) end)
+        local ok, vehicles = pcall(function() return exports['will_garages_v2']:getOwnedVehicles(userId) end)
         if not ok or type(vehicles) ~= 'table' then cb({ok=false,error='garage_unavailable'}); return end
         local result = {}
         for _, vehicle in pairs(vehicles) do
@@ -65,7 +66,7 @@ QBCore.Functions.CreateCallback('qb-tablet:server:getIntegrationData', function(
         local vehicles = {}
         local vehiclesAvailable = false
         if GetResourceState('will_garages_v2') == 'started' then
-            local ok, rows = pcall(function() return vRP.query('will/get_owned_vehicles', { user_id=userId }) end)
+            local ok, rows = pcall(function() return exports['will_garages_v2']:getOwnedVehicles(userId) end)
             if ok and type(rows) == 'table' then
                 vehiclesAvailable = true
                 for _, vehicle in pairs(rows) do
@@ -115,11 +116,11 @@ local function callJudicialExport(source, exportName, ...)
     return result
 end
 
-QBCore.Functions.CreateCallback('qb-tablet:server:getJudicialCases', function(source, cb)
+QBCore.Functions.CreateCallback('leonne_tablet:server:getJudicialCases', function(source, cb)
     cb(callJudicialExport(source, 'getCases'))
 end)
 
-QBCore.Functions.CreateCallback('qb-tablet:server:createJudicialCase', function(source, cb, data)
+QBCore.Functions.CreateCallback('leonne_tablet:server:createJudicialCase', function(source, cb, data)
     if type(data) ~= 'table' then cb({ ok = false, error = 'invalid_data' }); return end
     cb(callJudicialExport(source, 'createCase', data.party, data.caseType, data.summary))
 end)

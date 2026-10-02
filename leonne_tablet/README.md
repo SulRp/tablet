@@ -1,12 +1,12 @@
-# qb-tablet
+# leonne_tablet
 
 Tablet NUI para QBCore, `ox_inventory` e integrações selecionadas da base Reborn/Creative. Apps instalados e seus dados ficam nos metadados de cada unidade física do tablet.
 
 ## Instalação
 
-1. Copie `qb-tablet` para `resources/[ Reborn ]/`.
+1. Copie `leonne_tablet` para `resources/[ Reborn ]/`.
 2. Inicie `qb-core`, `ox_lib`, `ox_inventory` e `vrp` antes do tablet. Os recursos `will_homes` e `will_garages_v2` precisam estar iniciados para as integrações de Casas e Garagem. Para o app Judicial, inicie também `leonne_judicial` antes do tablet.
-3. Adicione `ensure leonne_judicial` e depois `ensure qb-tablet` ao `server.cfg`.
+3. Adicione `ensure leonne_judicial` e depois `ensure leonne_tablet` ao `server.cfg`.
 4. Registre o item em `ox_inventory/data/items.lua`:
 
 ```lua
@@ -16,11 +16,11 @@ Tablet NUI para QBCore, `ox_inventory` e integrações selecionadas da base Rebo
     stack = false,
     close = true,
     consume = 0,
-    client = { export = 'qb-tablet.useTablet' }
+    client = { export = 'leonne_tablet.useTablet' }
 },
 ```
 
-5. Reinicie `ox_inventory` e `qb-tablet`, depois use o item.
+5. Reinicie `ox_inventory` e `leonne_tablet`, depois use o item.
 
 ## Apps
 
@@ -47,7 +47,7 @@ O tablet mantém QBCore e ox_inventory para abrir e salvar o aparelho. Para as i
 
 Para usar uma imagem no lugar do emoji, adicione `iconImage`, por exemplo `iconImage='apps/example/icon.png'`, e coloque `icon.png` na pasta do app. PNG, WebP e SVG são aceitos; o campo `icon` continua como fallback se a imagem não carregar.
 
-3. Reinicie `qb-tablet`. O `fxmanifest.lua` inclui as pastas `apps/**` e o app aparece na Loja.
+3. Reinicie `leonne_tablet`. O `fxmanifest.lua` inclui as pastas `apps/**` e o app aparece na Loja.
 
 Para salvar dados no próprio tablet, o app escuta a mensagem `qbTablet:init` e envia alterações ao NUI pai:
 

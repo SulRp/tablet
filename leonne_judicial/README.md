@@ -7,7 +7,7 @@ Sistema judicial integrado ao tablet: advogados registram e consultam processos 
 1. Coloque `leonne_judicial` na pasta de resources.
 2. Em `config.lua`, ajuste `LawyerPermission` para a permissao de advogado usada pela base.
 3. Configure `DiscordWebhook` e `LawyerRoleId`.
-4. Adicione `ensure leonne_judicial` ao `server.cfg` depois de iniciar `vrp` e antes de `ensure qb-tablet`.
+4. Adicione `ensure leonne_judicial` ao `server.cfg` depois de iniciar `vrp` e antes de `ensure leonne_tablet`.
 5. Instale o app Judicial na Loja do tablet.
 
 ## Comandos

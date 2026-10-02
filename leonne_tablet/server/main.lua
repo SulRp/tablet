@@ -25,7 +25,7 @@ local function persist(source, slot, metadata, state)
     metadata[Config.MetadataKey] = state
     exports.ox_inventory:SetMetadata(source, slot, metadata)
 end
-RegisterNetEvent('qb-tablet:server:use', function(slot)
+RegisterNetEvent('leonne_tablet:server:use', function(slot)
     local src = source
     slot = tonumber(slot)
     local item = slot and exports.ox_inventory:GetSlot(src, slot)
@@ -38,9 +38,9 @@ RegisterNetEvent('qb-tablet:server:use', function(slot)
     elseif not metadata[Config.MetadataKey] then
         persist(src, slot, metadata, state)
     end
-    TriggerClientEvent('qb-tablet:client:open', src, slot, state, appCatalog())
+    TriggerClientEvent('leonne_tablet:client:open', src, slot, state, appCatalog())
 end)
-QBCore.Functions.CreateCallback('qb-tablet:server:save', function(source, cb, slot, action, appId, value)
+QBCore.Functions.CreateCallback('leonne_tablet:server:save', function(source, cb, slot, action, appId, value)
     slot = tonumber(slot)
     local item = slot and exports.ox_inventory:GetSlot(source, slot)
     if not item or item.name ~= Config.ItemName then cb({ok=false}); return end

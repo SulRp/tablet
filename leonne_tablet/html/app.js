@@ -1,4 +1,4 @@
-const resource = 'qb-tablet';
+const resource = 'leonne_tablet';
 let catalog = [], state = {}, activeApp = null;
 const $ = (id) => document.getElementById(id);
 const nui = (name, data = {}) => fetch(`https://${resource}/${name}`, {

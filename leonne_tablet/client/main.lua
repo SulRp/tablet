@@ -8,10 +8,10 @@ local function closeTablet()
 end
 exports('useTablet', function(data, slot)
     exports.ox_inventory:useItem(data, function(usedData)
-        if usedData then TriggerServerEvent('qb-tablet:server:use', slot) end
+        if usedData then TriggerServerEvent('leonne_tablet:server:use', slot) end
     end)
 end)
-RegisterNetEvent('qb-tablet:client:open', function(slot, state, apps)
+RegisterNetEvent('leonne_tablet:client:open', function(slot, state, apps)
     if isOpen then return end
     isOpen, tabletSlot = true, slot
     SetNuiFocus(true, true)
@@ -20,16 +20,16 @@ end)
 if Config.OpenCommand then RegisterCommand(Config.OpenCommand, function() QBCore.Functions.Notify('Use o item tablet para abrir o aparelho.', 'primary') end, false) end
 RegisterNUICallback('close', function(_, cb) closeTablet(); cb({ok=true}) end)
 RegisterNUICallback('save', function(data, cb)
-    QBCore.Functions.TriggerCallback('qb-tablet:server:save', function(result) cb(result or {ok=false}) end, tabletSlot, data.action, data.id, data.value)
+    QBCore.Functions.TriggerCallback('leonne_tablet:server:save', function(result) cb(result or {ok=false}) end, tabletSlot, data.action, data.id, data.value)
 end)
 RegisterNUICallback('integrationData', function(data, cb)
-    QBCore.Functions.TriggerCallback('qb-tablet:server:getIntegrationData', function(result) cb(result or {ok=false}) end, data.id)
+    QBCore.Functions.TriggerCallback('leonne_tablet:server:getIntegrationData', function(result) cb(result or {ok=false}) end, data.id)
 end)
 RegisterNUICallback('judicialCases', function(_, cb)
-    QBCore.Functions.TriggerCallback('qb-tablet:server:getJudicialCases', function(result) cb(result or {ok=false}) end)
+    QBCore.Functions.TriggerCallback('leonne_tablet:server:getJudicialCases', function(result) cb(result or {ok=false}) end)
 end)
 RegisterNUICallback('createJudicialCase', function(data, cb)
-    QBCore.Functions.TriggerCallback('qb-tablet:server:createJudicialCase', function(result) cb(result or {ok=false}) end, data)
+    QBCore.Functions.TriggerCallback('leonne_tablet:server:createJudicialCase', function(result) cb(result or {ok=false}) end, data)
 end)
 RegisterNUICallback('markLocation', function(data, cb)
     local x, y = tonumber(data.x), tonumber(data.y)
