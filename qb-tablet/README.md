@@ -5,8 +5,8 @@ Tablet NUI para QBCore, `ox_inventory` e integrações selecionadas da base Rebo
 ## Instalação
 
 1. Copie `qb-tablet` para `resources/[ Reborn ]/`.
-2. Inicie `qb-core`, `ox_lib`, `ox_inventory` e `vrp` antes do tablet. Os recursos `will_homes` e `will_garages_v2` precisam estar iniciados para as integrações de Casas e Garagem. Para o app Judicial, inicie também `reborn_judicial` antes do tablet.
-3. Adicione `ensure reborn_judicial` e depois `ensure qb-tablet` ao `server.cfg`.
+2. Inicie `qb-core`, `ox_lib`, `ox_inventory` e `vrp` antes do tablet. Os recursos `will_homes` e `will_garages_v2` precisam estar iniciados para as integrações de Casas e Garagem. Para o app Judicial, inicie também `leonne_judicial` antes do tablet.
+3. Adicione `ensure leonne_judicial` e depois `ensure qb-tablet` ao `server.cfg`.
 4. Registre o item em `ox_inventory/data/items.lua`:
 
 ```lua
@@ -32,7 +32,7 @@ Notas, Calculadora, Contatos, Clima e GOV vêm instalados. O GOV consulta os dad
 - **Spotify** (`ld_spotify`): botão que fecha o tablet e executa o comando configurado em `Config.LaunchCommands.spotify` (`som` por padrão).
 - **Bate-ponto** (`will_bateponto`): app informativo; o recurso valida o grupo no ponto físico configurado e não oferece API remota pública.
 - **Empregos** (`will_jobs`): botão que fecha o tablet e executa `Config.LaunchCommands.jobs` (`jobs` por padrão). O recurso só registra esse comando quando `Config.debug` está ativo.
-- **Judicial** (`reborn_judicial`): advogados autorizados podem abrir e consultar processos pelo tablet. O recurso judicial continua responsável por validar a permissão, salvar os registros e enviar os avisos ao Discord.
+- **Judicial** (`leonne_judicial`): advogados autorizados podem abrir e consultar processos pelo tablet. O recurso judicial continua responsável por validar a permissão, salvar os registros e enviar os avisos ao Discord.
 
 O tablet mantém QBCore e ox_inventory para abrir e salvar o aparelho. Para as integrações dos recursos Reborn, o vRP deve estar iniciado para resolver o `user_id` do personagem.
 

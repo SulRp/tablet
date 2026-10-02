@@ -101,12 +101,12 @@ QBCore.Functions.CreateCallback('qb-tablet:server:getIntegrationData', function(
 end)
 
 local function callJudicialExport(source, exportName, ...)
-    if GetResourceState('reborn_judicial') ~= 'started' then
+    if GetResourceState('leonne_judicial') ~= 'started' then
         return { ok = false, error = 'judicial_unavailable' }
     end
     local args = { ... }
     local ok, result = pcall(function()
-        local judicial = exports['reborn_judicial']
+        local judicial = exports['leonne_judicial']
         return judicial[exportName](judicial, source, table.unpack(args))
     end)
     if not ok or type(result) ~= 'table' then

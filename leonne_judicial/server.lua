@@ -11,7 +11,7 @@ local function loadCases()
 
     local ok, decoded = pcall(json.decode, raw)
     if not ok or type(decoded) ~= 'table' then
-        print('[reborn_judicial] Nao foi possivel ler processos.json; iniciando lista vazia.')
+        print('[leonne_judicial] Nao foi possivel ler processos.json; iniciando lista vazia.')
         return
     end
 
@@ -88,7 +88,7 @@ local function sendDiscordNotification(case)
 
     PerformHttpRequest(Config.DiscordWebhook, function(status)
         if status < 200 or status >= 300 then
-            print(('[reborn_judicial] Discord respondeu com status %s ao enviar o processo #%06d.'):format(status, case.id))
+            print(('[leonne_judicial] Discord respondeu com status %s ao enviar o processo #%06d.'):format(status, case.id))
         end
     end, 'POST', json.encode(payload), { ['Content-Type'] = 'application/json' })
 end
@@ -154,7 +154,7 @@ end)
 
 RegisterCommand('processo', function(source, args)
     if source == 0 then
-        print('[reborn_judicial] O comando deve ser usado por um jogador dentro do servidor.')
+        print('[leonne_judicial] O comando deve ser usado por um jogador dentro do servidor.')
         return
     end
 

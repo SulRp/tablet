@@ -2,8 +2,8 @@ fx_version 'cerulean'
 game 'gta5'
 lua54 'yes'
 
-name 'reborn_judicial'
-author 'Codex'
+name 'leonne_judicial'
+author 'Leonne'
 description 'Registro inicial de processos judiciais com notificacoes via Discord.'
 version '0.1.0'
 
